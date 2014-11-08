@@ -1,27 +1,7 @@
-GFW 境外列表（部分），可用于设置路由表走 VPN
+OpenWrt VPN自动翻墙配置
 
-指向 CDN 的网站没有包含进去。
+采用GraceMode，只对GFW认证IP走VPN流量，配置文件gfwiplist.txt，fork自 https://github.com/SteamedFish/gfwiplist
 
-严重不全，欢迎补充。
+checkvpn.sh 负责检查vpn是否联通，放cron中每分钟检查1次，fork自 http://www.cnblogs.com/fatlyz/p/3843581.html
 
-
-
-## License
-
-WTFPL V2:
-
-<pre>
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-                    Version 2, December 2004
-
- Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
-
- Everyone is permitted to copy and distribute verbatim or modified
- copies of this license document, and changing it is allowed as long
- as the name is changed.
-
-            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
-   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
-
-  0. You just DO WHAT THE FUCK YOU WANT TO.
-</pre>
+addvpnroute.sh 脚本用于添加gfwiplist.txt中的IP走VPN路由，在checkvpn.sh启动VPN后被自动添加
