@@ -1,11 +1,11 @@
 #!/bin/bash
 export PATH="/bin:/sbin:/usr/sbin:/usr/bin"
 
-WLANGW=`ip route show | grep pppoe-wan | grep link | awk '{print $1}'`
-VPNGW='10.8.0.1'
+WANGW=`ip route show | grep pppoe-wan | grep link | awk '{print $1}'`
+VPNGW=`ip route show | grep vpn | grep link | awk '{print $1}'`
 LISTFILE=$(dirname $(readlink -f $0))/gfwiplist.txt
 
-echo "WLAN Gateway:" $WLANGW
+echo "WLAN Gateway:" $WANGW
 echo "VPN Gateway:" $VPNGW
 
 grep -v \# $LISTFILE | grep -v ^$ | grep / | while read LINE
